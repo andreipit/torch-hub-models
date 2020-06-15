@@ -12,6 +12,7 @@ model = torch.hub.load('andreipit/torch-hub-models:master', 'shown_in_hub_list',
     v1
 model
     dict_items([('pretrained', True), ('testkwarg', 78)])    
+list(model)[1][1] #78    
 
 torch.hub.download_url_to_file('https://github.com/andreipit/torch-hub-models/releases/download/v1/one_layer_cnn_weights.pth', 'temporary_file', hash_prefix=None, progress=True) # creates output/kaggle/working/temporary_file
 
