@@ -2,6 +2,30 @@
 https://pytorch.org/docs/stable/hub.html
 
 One layer CNN
+# Hello World!
+torch.hub.set_dir('/kaggle/working/mytorchcache')
+entrypoints = torch.hub.list('andreipit/torch-hub-models:master', force_reload=True) # (:v1/master)
+torch.hub.help('andreipit/torch-hub-models', 'one_layer_cnn', force_reload=True)
+
+input_size_train = iter(trainloader).next()['image'].shape[1:]
+
+### way 1
+### net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=True, force_reload=True, testkwarg=78)
+
+### # way 2
+### net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=False, force_reload=True, testkwarg=78)
+### state_dict = torch.hub.load_state_dict_from_url('https://github.com/andreipit/torch-hub-models/releases/download/v2/one_layer_cnn_weights.pth')
+### net.load_state_dict(state_dict)
+
+### way 3
+net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=False, force_reload=True, testkwarg=78)
+torch.hub.download_url_to_file('https://github.com/andreipit/torch-hub-models/releases/download/v2/one_layer_cnn_weights.pth', 'temporary_file', hash_prefix=None, progress=True)
+state_dict = torch.load('/kaggle/working/temporary_file')
+net.load_state_dict(state_dict)
+
+dir(net) # => forward
+help(net.forward)
+
 
 # 1) get info
 entrypoints = torch.hub.list('andreipit/torch-hub-models:master', force_reload=True) # refresh downloaded (:v1/master)
