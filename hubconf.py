@@ -69,7 +69,7 @@ def one_layer_cnn(pretrained=False, **kwargs):
 
     # model = _resnet18(pretrained=pretrained, **kwargs)
     # net = Net(_input_size=iter(trainloader).next()['image'].shape[1:]) #(4,3,28,28)->(3,28,28)
-    net = Net(_input_size=(3,28,28)) #(4,3,28,28)->(3,28,28)
+    net = Net(_input_size=kwargs.items()[0].value) #(4,3,28,28)->(3,28,28)
     model = net
 
 
