@@ -10,12 +10,12 @@ torch.hub.help('andreipit/torch-hub-models', 'one_layer_cnn', force_reload=True)
 input_size_train = iter(trainloader).next()['image'].shape[1:]
 
 ### way 1
-### net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=True, force_reload=True, testkwarg=78)
+net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=True, force_reload=True, testkwarg=78)
 
 ### # way 2
-### net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=False, force_reload=True, testkwarg=78)
-### state_dict = torch.hub.load_state_dict_from_url('https://github.com/andreipit/torch-hub-models/releases/download/v2/one_layer_cnn_weights.pth')
-### net.load_state_dict(state_dict)
+net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=False, force_reload=True, testkwarg=78)
+state_dict = torch.hub.load_state_dict_from_url('https://github.com/andreipit/torch-hub-models/releases/download/v2/one_layer_cnn_weights.pth')
+net.load_state_dict(state_dict)
 
 ### way 3
 net = torch.hub.load('andreipit/torch-hub-models:master', 'one_layer_cnn', input_size=input_size_train, pretrained=False, force_reload=True, testkwarg=78)
@@ -25,6 +25,10 @@ net.load_state_dict(state_dict)
 
 dir(net) # => forward
 help(net.forward)
+net.to(device)
+
+PATH = './one_layer_cnn_weights.pth'
+torch.save(net.state_dict(), PATH)
 
 
 # 1) get info
