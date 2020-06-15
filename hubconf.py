@@ -8,9 +8,10 @@ def _hidden_in_hub_list(**kwargs):
 
 
 def shown_in_hub_list(**kwargs):
+    """model = torch.hub.load('andreipit/torch-hub-models:master', 'shown_in_hub_list', pretrained=True, testkwarg=78)"""
     for key, value in kwargs.items():
         print("{0} = {1}".format(key, value))
-    return
+    return kwargs.items()
 
 # resnet18 is the name of entrypoint
 def one_layer_cnn(pretrained=False, **kwargs):
