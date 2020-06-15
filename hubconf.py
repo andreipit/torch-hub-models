@@ -1,4 +1,4 @@
-dependencies = ['torch']
+dependencies = ['torch','os']
 from torchvision.models.resnet import resnet18 as _resnet18
 
 def _hidden_in_hub_list(**kwargs):
@@ -25,6 +25,7 @@ def one_layer_cnn(pretrained=False, **kwargs):
     import torch
     import torch.nn as nn
     import torch.nn.functional as F
+    import os
 
     class Net(nn.Module):
         def __init__(self, _input_size=(3,28,28)):
