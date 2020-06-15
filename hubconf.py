@@ -11,6 +11,7 @@ def shown_in_hub_list(**kwargs):
     """model = torch.hub.load('andreipit/torch-hub-models:master', 'shown_in_hub_list', pretrained=True, testkwarg=78)"""
     for key, value in kwargs.items():
         print("{0} = {1}".format(key, value))
+    print('v1')        
     return kwargs.items()
 
 # resnet18 is the name of entrypoint
