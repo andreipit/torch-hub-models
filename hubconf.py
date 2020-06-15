@@ -1,6 +1,15 @@
 dependencies = ['torch']
 from torchvision.models.resnet import resnet18 as _resnet18
 
+def _hidden_in_hub_list(**kwargs):
+    print('hidden')
+    return kwargs
+
+
+def shown_in_hub_list(**kwargs):
+    print('shown')
+    return kwargs
+
 # resnet18 is the name of entrypoint
 def one_layer_cnn(pretrained=False, **kwargs):
     """ # This docstring shows up in hub.help()
