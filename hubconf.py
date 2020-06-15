@@ -2,13 +2,15 @@ dependencies = ['torch','os']
 from torchvision.models.resnet import resnet18 as _resnet18
 
 def _hidden_in_hub_list(**kwargs):
-    print('hidden')
-    return kwargs
+    for key, value in kwargs.items():
+        print("{0} = {1}".format(key, value))
+    return
 
 
 def shown_in_hub_list(**kwargs):
-    print('shown')
-    return kwargs
+    for key, value in kwargs.items():
+        print("{0} = {1}".format(key, value))
+    return
 
 # resnet18 is the name of entrypoint
 def one_layer_cnn(pretrained=False, **kwargs):
