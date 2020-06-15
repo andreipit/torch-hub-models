@@ -73,7 +73,11 @@ def one_layer_cnn(pretrained=False, **kwargs):
         state_dict = torch.load(checkpoint)
         model.load_state_dict(state_dict)
 
+
         # For checkpoint saved elsewhere
+        #checkpoint = 'https://github.com/andreipit/torch-hub-models/releases/download/v1/one_layer_cnn_weights.pth'
+        #model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint, progress=False))
+
         # checkpoint = 'https://download.pytorch.org/models/resnet18-5c106cde.pth'
         # model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint, progress=False))
 
